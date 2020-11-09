@@ -21,9 +21,9 @@ const TxnDetailView = ({ blocks, block, txns, txn }) => {
         <TxnsList txns={txns} activeTxn={txn.hash} />
       </div>
       {/* {console.log(txns)} */}
-      <div className="h-full bg-gray-100 w-1/3 flex flex-col p-5">
+      <div className="h-full bg-gray-100 w-1/3 flex flex-col p-5 overflow-y-scroll">
         <h3 className="text-3xl font-bold">Transaction Details</h3>
-        {console.log(txn)}
+        {/* {console.log(txn)} */}
         {txn.type === "poc_request_v1" ? (
           <>
             <h2 className="text-green-400">PoC Request</h2>
