@@ -19,13 +19,13 @@ const Home = () => {
           <Link href="/blocks">
             <a className="m-5 w-1/2 no-underline	p-6 border border-white rounded-lg hover:border-gray-500">
               <h3 className="text-white text-3xl">Blocks &rarr;</h3>
-              <p className="text-gray-500">View blocks</p>
+              <p className="text-gray-500">View blocks and transactions</p>
             </a>
           </Link>
-          <Link href="/hotspots">
+          <Link href="/accounts">
             <a className="m-5 w-1/2 no-underline	p-6 border border-white rounded-lg hover:border-gray-500">
-              <h3 className="text-white text-3xl">Hotspots &rarr;</h3>
-              <p className="text-gray-500">View hotspots & accounts</p>
+              <h3 className="text-white text-3xl">Accounts &rarr;</h3>
+              <p className="text-gray-500">View accounts & hotspots</p>
             </a>
           </Link>
         </div>
