@@ -28,7 +28,10 @@ const TxnDetailView = ({ blocks, block, txns, txn }) => {
           <>
             <h2 className="text-green-400">PoC Request</h2>
             <Timestamp className="font-bold" date={txn.time} />
-            <p className="">Challenger: {animalHash(txn.challenger)}</p>
+            <p>Challenger:</p>
+            <Link href={`/hotspots/${txn.challenger}`}>
+              <a className="">{animalHash(txn.challenger)}</a>
+            </Link>
             <p className="">Challenger Location: {txn.challengerLocation}</p>
             <p className="break-all pt-5">Other: {JSON.stringify(txn)}</p>
           </>
@@ -36,16 +39,32 @@ const TxnDetailView = ({ blocks, block, txns, txn }) => {
           <>
             <h2 className="text-blue-400">PoC Receipt</h2>
             <Timestamp className="font-bold" date={txn.time} />
-            <p className="">Challenger: {animalHash(txn.challenger)}</p>
+            <p className="">Challenger:</p>
+            <Link href={`/hotspots/${txn.challenger}`}>
+              <a>{animalHash(txn.challenger)}</a>
+            </Link>
             <p className="pt-5 font-bold">PoC Path:</p>
-
-            {txn.path.map((segment, index) => {
-              return (
-                <p>
-                  {index + 1}. {animalHash(segment.challengee)}
-                </p>
-              );
-            })}
+            <ul>
+              {txn.path.map((segment, index) => {
+                return (
+                  <Link href={`/hotspots/${segment.challengee}`}>
+                    <a className="text-purple-500 hover:text-purple-600">
+                      <li
+                        className={`p-2 rounded-sm bg-purple-100 text-purple-500 hover:bg-purple-200`}
+                      >
+                        {index + 1}. {animalHash(segment.challengee)}
+                      </li>
+                    </a>
+                  </Link>
+                );
+              })}
+            </ul>
+            <p className="break-all pt-5">Other: {JSON.stringify(txn)}</p>
+          </>
+        ) : txn.type === "rewards_v1" ? (
+          <>
+            <h2>{txn.type}</h2>
+            <p>Rewards: {txn.rewards.length}</p>
           </>
         ) : (
           <>
